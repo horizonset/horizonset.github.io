@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HorizonSet — Free, Minimalist Online Text &amp; Student Tools</title>
+  <meta name="description" content="HorizonSet builds fast, free, ad-clutter-free online tools: AI & ChatGPT Text Cleaner, 17 Fancy Fonts Generator, APA/MLA Citation Maker, and Essay Readability Polish.">
+  <style>
+    * { box-sizing: border-box; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+
+    body {
+      background: #070b14;
+      color: #e2e8f0;
+      margin: 0;
+      min-height: 100vh;
+      padding: 40px 18px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(95px);
+      opacity: 0.38;
+      z-index: 0;
+      pointer-events: none;
+      will-change: transform;
+      animation: floatOrb 16s ease-in-out infinite alternate;
+    }
+    .orb-1 { width: 380px; height: 380px; background: #6d28d9; top: -110px; left: -100px; }
+    .orb-2 { width: 340px; height: 340px; background: #0284c7; bottom: -90px; right: -80px; animation-delay: -8s; }
+    @keyframes floatOrb {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      100% { transform: translate3d(40px, 30px, 0) scale(1.08); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 880px;
+      animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translate3d(0, 16px, 0); }
+      to { opacity: 1; transform: translate3d(0, 0, 0); }
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #c4b5fd;
+      background: rgba(124, 58, 237, 0.16);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .badge-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 8px #34d399;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(90deg, #f8fafc, #93c5fd, #c4b5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      max-width: 560px;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #94a3b8;
+    }
+
+    /* Tool Cards */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+    .tool-card {
+      text-decoration: none;
+      color: inherit;
+      background: rgba(17, 24, 39, 0.74);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 18px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .tool-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.45);
+      box-shadow: 0 24px 50px rgba(2, 132, 199, 0.18);
+    }
+
+    .icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .icon-purple {
+      background: rgba(124, 58, 237, 0.2);
+      border: 1px solid rgba(167, 139, 250, 0.3);
+      color: #c4b5fd;
+    }
+    .icon-blue {
+      background: rgba(2, 132, 199, 0.2);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #7dd3fc;
+    }
+
+    .tool-card h2 {
+      margin: 0 0 8px;
+      font-size: 19px;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+    .tool-card p {
+      margin: 0 0 18px;
+      font-size: 14px;
+      line-height: 1.55;
+      color: #94a3b8;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .tag {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #cbd5e1;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .launch-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #38bdf8;
+      transition: gap 0.2s ease;
+    }
+    .tool-card:hover .launch-link { gap: 10px; }
+
+    /* Pillars */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      background: rgba(17, 24, 39, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .pillar h3 {
+      margin: 0 0 5px;
+      font-size: 14px;
+      color: #e2e8f0;
+    }
+    .pillar p {
+      margin: 0;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: #94a3b8;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 12.5px;
+      color: #64748b;
+    }
+
+    @media (max-width: 700px) {
+      h1 { font-size: 30px; }
+      .tools-grid, .pillars { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <div class="container">
+    <div class="hero">
+      <div class="badge"><span class="badge-dot"></span> HorizonSet &bull; Fast Web Utilities</div>
+      <h1>Simple Tools. Zero Clutter.</h1>
+      <p>Fast, private, minimalist browser tools built to save you time—with no logins, no paywalls, and no annoying popups.</p>
+    </div>
+
+    <div class="tools-grid">
+      <a class="tool-card" href="https://horizonset.github.io/text-cleaner/">
+        <div>
+          <div class="icon-box icon-purple">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8L20 10.7l-5.8 1.9L12 18.5l-1.9-5.9L4.3 10.7l5.8-1.9L12 3z"/></svg>
+          </div>
+          <h2>Text Cleaner &amp; Font Styler</h2>
+          <p>Strip messy ChatGPT/AI formatting, fix broken PDF line breaks, count words, and convert text into 17 cool Unicode fonts.</p>
+          <div class="tags">
+            <span class="tag">Clean AI Text</span>
+            <span class="tag">17 Font Styles</span>
+            <span class="tag">Word Counter</span>
+          </div>
+        </div>
+        <span class="launch-link">Open Tool &rarr;</span>
+      </a>
+
+      <a class="tool-card" href="https://horizonset.github.io/essay-helper/">
+        <div>
+          <div class="icon-box icon-blue">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h2>Citation Maker &amp; Essay Polish</h2>
+          <p>Generate APA 7, MLA 9 &amp; Harvard citations, build an A&ndash;Z bibliography, check reading level, and catch overused words.</p>
+          <div class="tags">
+            <span class="tag">APA / MLA / Harvard</span>
+            <span class="tag">Reading Level</span>
+            <span class="tag">Word Repeats</span>
+          </div>
+        </div>
+        <span class="launch-link">Open Tool &rarr;</span>
+      </a>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <h3>100% Private</h3>
+        <p>Everything runs right inside your browser. Your essays and text never leave your device.</p>
+      </div>
+      <div class="pillar">
+        <h3>Zero Lag</h3>
+        <p>Built with pure, lightweight code so pages open instantly even on slow connections.</p>
+      </div>
+      <div class="pillar">
+        <h3>Always Free</h3>
+        <p>No sign-ups, no "free trial" traps, and no cluttered popups blocking your screen.</p>
+      </div>
+    </div>
+
+    <footer>
+      HorizonSet &bull; Minimalist Browser Tools
+    </footer>
+  </div>
+</body>
+</html>
