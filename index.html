@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HorizonSet — Free Minimalist Text, Image, Study &amp; Math Tools</title>
-  <meta name="description" content="HorizonSet offers 5 free, private, ad-clutter-free browser tools: AI Text Cleaner & 17 Fonts, Citation & Essay Polish, 11-Format Image Studio, Pomodoro Focus Timer, and Quick Math Calculators.">
+  <title>HorizonSet — 8 Free Minimalist Text, Image, Study, AI &amp; Math Tools</title>
+  <meta name="description" content="HorizonSet offers 8 free, private, ad-clutter-free browser tools: AI Text Cleaner & Fonts, Citation & Essay Polish, 11-Format Image Studio, Focus Timer, Quick Math, Research Bot, AI Prompt Builder, and 200+ Currency & Unit Converter.">
   <style>
     * { box-sizing: border-box; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
 
@@ -42,7 +42,7 @@
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 980px;
+      max-width: 1020px;
       animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
     @keyframes fadeUp {
@@ -50,7 +50,6 @@
       to { opacity: 1; transform: translate3d(0, 0, 0); }
     }
 
-    /* Hero */
     .hero { text-align: center; margin-bottom: 34px; }
     .badge {
       display: inline-flex;
@@ -77,14 +76,14 @@
       -webkit-text-fill-color: transparent;
     }
     .hero p {
-      max-width: 580px;
+      max-width: 600px;
       margin: 0 auto;
       font-size: 15.5px;
       line-height: 1.6;
       color: #94a3b8;
     }
 
-    /* Tool Cards Grid */
+    /* 3x3 Symmetrical Grid */
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -112,16 +111,14 @@
       box-shadow: 0 24px 50px rgba(2, 132, 199, 0.18);
     }
 
-    .tool-card.soon {
-      border-style: dashed;
-      border-color: rgba(148, 163, 184, 0.22);
-      background: rgba(17, 24, 39, 0.45);
-      cursor: default;
+    /* Support Card Styling */
+    .tool-card.support {
+      background: linear-gradient(145deg, rgba(124, 58, 237, 0.18), rgba(244, 63, 94, 0.12));
+      border-color: rgba(251, 113, 133, 0.3);
     }
-    .tool-card.soon:hover {
-      transform: none;
-      border-color: rgba(148, 163, 184, 0.28);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+    .tool-card.support:hover {
+      border-color: rgba(251, 113, 133, 0.65);
+      box-shadow: 0 24px 50px rgba(244, 63, 94, 0.2);
     }
 
     .icon-box {
@@ -138,7 +135,10 @@
     .ic-green  { background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(52, 211, 153, 0.3); color: #6ee7b7; }
     .ic-indigo { background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(129, 140, 248, 0.3); color: #a5b4fc; }
     .ic-amber  { background: rgba(245, 158, 11, 0.18); border: 1px solid rgba(251, 191, 36, 0.28); color: #fcd34d; }
-    .ic-slate  { background: rgba(100, 116, 139, 0.18); border: 1px solid rgba(148, 163, 184, 0.25); color: #94a3b8; }
+    .ic-cyan   { background: rgba(6, 182, 212, 0.2); border: 1px solid rgba(34, 211, 238, 0.3); color: #67e8f9; }
+    .ic-violet { background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(196, 181, 253, 0.3); color: #ddd6fe; }
+    .ic-teal   { background: rgba(20, 184, 166, 0.2); border: 1px solid rgba(45, 212, 191, 0.3); color: #5eead4; }
+    .ic-rose   { background: rgba(244, 63, 94, 0.2); border: 1px solid rgba(251, 113, 133, 0.35); color: #fda4af; }
 
     .tool-card h2 { margin: 0 0 7px; font-size: 17.5px; font-weight: 700; color: #f8fafc; }
     .tool-card p { margin: 0 0 15px; font-size: 13.5px; line-height: 1.5; color: #94a3b8; }
@@ -164,8 +164,8 @@
       transition: gap 0.2s ease;
     }
     .tool-card:hover .launch-link { gap: 10px; }
+    .tool-card.support .launch-link { color: #fda4af; }
 
-    /* Pillars */
     .pillars {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -180,7 +180,7 @@
 
     footer { text-align: center; margin-top: 28px; font-size: 12.5px; color: #64748b; }
 
-    @media (max-width: 860px) {
+    @media (max-width: 880px) {
       .tools-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 600px) {
@@ -195,7 +195,7 @@
 
   <div class="container">
     <div class="hero">
-      <div class="badge"><span class="badge-dot"></span> HorizonSet &bull; 5 Free Browser Utilities</div>
+      <div class="badge"><span class="badge-dot"></span> HorizonSet &bull; 8 Free Browser Utilities</div>
       <h1>Simple Tools. Zero Clutter.</h1>
       <p>Fast, private, minimalist tools built to run right inside your browser—with zero logins, zero trackers, and zero annoying popups.</p>
     </div>
@@ -205,15 +205,11 @@
       <a class="tool-card" href="https://horizonset.github.io/text-cleaner/">
         <div>
           <div class="icon-box ic-purple">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8L20 10.7l-5.8 1.9L12 18.5l-1.9-5.9L4.3 10.7l5.8-1.9L12 3z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 5.8L20 10.7l-5.8 1.9L12 18.5l-1.9-5.9L4.3 10.7l5.8-1.9L12 3z"/></svg>
           </div>
           <h2>Text Cleaner &amp; Fonts</h2>
           <p>Strip ChatGPT formatting, fix PDF line breaks, count words, and style text in 17 Unicode fonts.</p>
-          <div class="tags">
-            <span class="tag">Clean AI Text</span>
-            <span class="tag">17 Fonts</span>
-            <span class="tag">Word Counter</span>
-          </div>
+          <div class="tags"><span class="tag">Clean AI Text</span><span class="tag">17 Fonts</span><span class="tag">Word Counter</span></div>
         </div>
         <span class="launch-link">Open Tool &rarr;</span>
       </a>
@@ -222,15 +218,11 @@
       <a class="tool-card" href="https://horizonset.github.io/essay-helper/">
         <div>
           <div class="icon-box ic-blue">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
           </div>
           <h2>Citations &amp; Essay Polish</h2>
           <p>Generate APA 7, MLA 9 &amp; Harvard citations, save a bibliography, and spot repeated words.</p>
-          <div class="tags">
-            <span class="tag">APA / MLA</span>
-            <span class="tag">Grade Level</span>
-            <span class="tag">Repeats</span>
-          </div>
+          <div class="tags"><span class="tag">APA / MLA</span><span class="tag">Grade Level</span><span class="tag">Repeats</span></div>
         </div>
         <span class="launch-link">Open Tool &rarr;</span>
       </a>
@@ -239,15 +231,11 @@
       <a class="tool-card" href="https://horizonset.github.io/image-studio/">
         <div>
           <div class="icon-box ic-green">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
           </div>
           <h2>11-Format Image Studio</h2>
           <p>Compress &amp; resize images offline, or convert to JPG, PNG, WebP, AVIF, PDF, ICO, BMP, SVG &amp; more.</p>
-          <div class="tags">
-            <span class="tag">11 Formats</span>
-            <span class="tag">Image to PDF</span>
-            <span class="tag">Compressor</span>
-          </div>
+          <div class="tags"><span class="tag">11 Formats</span><span class="tag">Image to PDF</span><span class="tag">Compressor</span></div>
         </div>
         <span class="launch-link">Open Tool &rarr;</span>
       </a>
@@ -256,15 +244,11 @@
       <a class="tool-card" href="https://horizonset.github.io/focus-timer/">
         <div>
           <div class="icon-box ic-indigo">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <h2>Focus Timer &amp; Sound</h2>
           <p>Pomodoro countdown ring with built-in brown noise, soft rain, white noise, and session tasks.</p>
-          <div class="tags">
-            <span class="tag">Pomodoro</span>
-            <span class="tag">Brown Noise</span>
-            <span class="tag">Checklist</span>
-          </div>
+          <div class="tags"><span class="tag">Pomodoro</span><span class="tag">Brown Noise</span><span class="tag">Checklist</span></div>
         </div>
         <span class="launch-link">Open Tool &rarr;</span>
       </a>
@@ -273,34 +257,66 @@
       <a class="tool-card" href="https://horizonset.github.io/quick-math/">
         <div>
           <div class="icon-box ic-amber">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="10" y2="11"/><line x1="14" y1="11" x2="16" y2="11"/><line x1="8" y1="16" x2="10" y2="16"/><line x1="14" y1="16" x2="16" y2="16"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="10" y2="11"/><line x1="14" y1="11" x2="16" y2="11"/><line x1="8" y1="16" x2="10" y2="16"/><line x1="14" y1="16" x2="16" y2="16"/></svg>
           </div>
           <h2>Quick Math &amp; Grades</h2>
           <p>Live percentage calculators, tip &amp; bill splitter, discount price finder, and final exam grade calculator.</p>
-          <div class="tags">
-            <span class="tag">Percentages</span>
-            <span class="tag">Discounts</span>
-            <span class="tag">Final Grade</span>
-          </div>
+          <div class="tags"><span class="tag">Percentages</span><span class="tag">Discounts</span><span class="tag">Final Grade</span></div>
         </div>
         <span class="launch-link">Open Tool &rarr;</span>
       </a>
 
-      <!-- 6. Coming Soon Placeholder -->
-      <div class="tool-card soon">
+      <!-- 6. Research Bot -->
+      <a class="tool-card" href="https://horizonset.github.io/research-bot/">
         <div>
-          <div class="icon-box ic-slate">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <div class="icon-box ic-cyan">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           </div>
-          <h2>More Tools Coming Soon</h2>
-          <p>New minimalist utilities are added regularly—always lightweight, private, and free to use.</p>
-          <div class="tags">
-            <span class="tag">No Bloat</span>
-            <span class="tag">Zero Sign-ups</span>
-          </div>
+          <h2>Instant Research Bot</h2>
+          <p>Ask any topic or word—pulls live Wikipedia summaries, images, and English dictionary definitions.</p>
+          <div class="tags"><span class="tag">Live Web</span><span class="tag">Summaries</span><span class="tag">Dictionary</span></div>
         </div>
-        <span class="launch-link" style="color:#64748b">In Progress</span>
-      </div>
+        <span class="launch-link">Open Tool &rarr;</span>
+      </a>
+
+      <!-- 7. Prompt Builder -->
+      <a class="tool-card" href="https://horizonset.github.io/prompt-builder/">
+        <div>
+          <div class="icon-box ic-violet">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h2>Smart AI Prompt Builder</h2>
+          <p>Turn a quick idea into a structured super-prompt with roles, tones &amp; rules for ChatGPT or Gemini.</p>
+          <div class="tags"><span class="tag">Super-Prompts</span><span class="tag">Presets</span><span class="tag">1-Click Copy</span></div>
+        </div>
+        <span class="launch-link">Open Tool &rarr;</span>
+      </a>
+
+      <!-- 8. Unit & Currency Converter -->
+      <a class="tool-card" href="https://horizonset.github.io/unit-converter/">
+        <div>
+          <div class="icon-box ic-teal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          </div>
+          <h2>World Currency &amp; Units</h2>
+          <p>Convert 200+ live world currencies and 14 complete scientific, cooking, data &amp; everyday unit groups.</p>
+          <div class="tags"><span class="tag">200+ Currencies</span><span class="tag">15 Categories</span><span class="tag">Live Rates</span></div>
+        </div>
+        <span class="launch-link">Open Tool &rarr;</span>
+      </a>
+
+      <!-- 9. Support / Donate Card (REPLACE THE LINK BELOW WITH YOUR GUMROAD URL) -->
+      <a class="tool-card support" href="https://YOUR_GUMROAD_LINK" target="_blank" rel="noopener noreferrer">
+        <div>
+          <div class="icon-box ic-rose">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h2>Support HorizonSet</h2>
+          <p>Find these free tools helpful? Leave a small tip to help keep HorizonSet fast, free, and popup-free.</p>
+          <div class="tags"><span class="tag">Optional Tip</span><span class="tag">Any Card Accepted</span></div>
+        </div>
+        <span class="launch-link">Buy Me a Coffee &rarr;</span>
+      </a>
     </div>
 
     <div class="pillars">
