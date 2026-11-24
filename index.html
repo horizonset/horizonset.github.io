@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HorizonSet — 8 Free Minimalist Text, Image, Study, AI &amp; Math Tools</title>
-  <meta name="description" content="HorizonSet offers 8 free, private, ad-clutter-free browser tools: AI Text Cleaner & Fonts, Citation & Essay Polish, 11-Format Image Studio, Focus Timer, Quick Math, Research Bot, AI Prompt Builder, and 200+ Currency & Unit Converter.">
+  <title>HorizonSet — 8 Free Minimalist Tools &amp; Browser Arcade</title>
+  <meta name="description" content="HorizonSet offers 8 free, private browser tools plus a zero-ad mini-game arcade: AI Text Cleaner, Citation Maker, 11-Format Image Studio, Focus Timer, Math Calculators, Research Bot, Prompt Builder, and Currency Converter.">
   <style>
     * { box-sizing: border-box; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
 
@@ -50,7 +50,7 @@
       to { opacity: 1; transform: translate3d(0, 0, 0); }
     }
 
-    .hero { text-align: center; margin-bottom: 34px; }
+    .hero { text-align: center; margin-bottom: 32px; }
     .badge {
       display: inline-flex;
       align-items: center;
@@ -77,13 +77,29 @@
     }
     .hero p {
       max-width: 600px;
-      margin: 0 auto;
+      margin: 0 auto 16px;
       font-size: 15.5px;
       line-height: 1.6;
       color: #94a3b8;
     }
 
-    /* 3x3 Symmetrical Grid */
+    .hero-share {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(51, 65, 85, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #e2e8f0;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.18s ease, transform 0.15s ease;
+    }
+    .hero-share:hover { background: rgba(71, 85, 105, 0.85); transform: translateY(-1px); }
+
+    /* 3x3 Grid */
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -111,14 +127,14 @@
       box-shadow: 0 24px 50px rgba(2, 132, 199, 0.18);
     }
 
-    .tool-card.share {
-      background: linear-gradient(145deg, rgba(124, 58, 237, 0.18), rgba(244, 63, 94, 0.12));
-      border-color: rgba(251, 113, 133, 0.3);
-      cursor: pointer;
+    /* Special Arcade Card Highlight */
+    .tool-card.arcade {
+      background: linear-gradient(145deg, rgba(124, 58, 237, 0.22), rgba(236, 72, 153, 0.14));
+      border-color: rgba(244, 114, 182, 0.35);
     }
-    .tool-card.share:hover {
-      border-color: rgba(251, 113, 133, 0.65);
-      box-shadow: 0 24px 50px rgba(244, 63, 94, 0.2);
+    .tool-card.arcade:hover {
+      border-color: rgba(244, 114, 182, 0.72);
+      box-shadow: 0 24px 50px rgba(236, 72, 153, 0.22);
     }
 
     .icon-box {
@@ -138,7 +154,7 @@
     .ic-cyan   { background: rgba(6, 182, 212, 0.2); border: 1px solid rgba(34, 211, 238, 0.3); color: #67e8f9; }
     .ic-violet { background: rgba(139, 92, 246, 0.2); border: 1px solid rgba(196, 181, 253, 0.3); color: #ddd6fe; }
     .ic-teal   { background: rgba(20, 184, 166, 0.2); border: 1px solid rgba(45, 212, 191, 0.3); color: #5eead4; }
-    .ic-rose   { background: rgba(244, 63, 94, 0.2); border: 1px solid rgba(251, 113, 133, 0.35); color: #fda4af; }
+    .ic-pink   { background: rgba(236, 72, 153, 0.22); border: 1px solid rgba(244, 114, 182, 0.4); color: #f9a8d4; }
 
     .tool-card h2 { margin: 0 0 7px; font-size: 17.5px; font-weight: 700; color: #f8fafc; }
     .tool-card p { margin: 0 0 15px; font-size: 13.5px; line-height: 1.5; color: #94a3b8; }
@@ -164,7 +180,7 @@
       transition: gap 0.2s ease;
     }
     .tool-card:hover .launch-link { gap: 10px; }
-    .tool-card.share .launch-link { color: #fda4af; }
+    .tool-card.arcade .launch-link { color: #f9a8d4; }
 
     .pillars {
       display: grid;
@@ -195,9 +211,13 @@
 
   <div class="container">
     <div class="hero">
-      <div class="badge"><span class="badge-dot"></span> HorizonSet &bull; 8 Free Browser Utilities</div>
+      <div class="badge"><span class="badge-dot"></span> HorizonSet &bull; Tools &amp; Arcade</div>
       <h1>Simple Tools. Zero Clutter.</h1>
-      <p>Fast, private, minimalist tools built to run right inside your browser—with zero logins, zero trackers, and zero annoying popups.</p>
+      <p>Fast, private, minimalist tools and mini-games built to run right inside your browser—with zero logins, zero trackers, and zero annoying popups.</p>
+      <button class="hero-share" id="shareBtn" onclick="copyHomeLink()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        <span id="shareTxt">Share HorizonSet</span>
+      </button>
     </div>
 
     <div class="tools-grid">
@@ -305,18 +325,18 @@
         <span class="launch-link">Open Tool &rarr;</span>
       </a>
 
-      <!-- 9. Share HorizonSet -->
-      <div class="tool-card share" onclick="copyHomeLink(this)">
+      <!-- 9. Mini Games Arcade Hub -->
+      <a class="tool-card arcade" href="https://horizonset.github.io/arcade/">
         <div>
-          <div class="icon-box ic-rose">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          <div class="icon-box ic-pink">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><circle cx="15.5" cy="13" r="0.8"/><circle cx="18.5" cy="11" r="0.8"/></svg>
           </div>
-          <h2>Share HorizonSet</h2>
-          <p>Find these free tools helpful? Bookmark this hub or share it with a friend—zero sign-ups required.</p>
-          <div class="tags"><span class="tag">100% Free</span><span class="tag">Zero Sign-ups</span></div>
+          <h2>HorizonSet Arcade</h2>
+          <p>Take a quick break with fast, zero-ad browser mini-games—starting with Neon Brick Breaker.</p>
+          <div class="tags"><span class="tag">Mini Games</span><span class="tag">60fps</span><span class="tag">No Ads</span></div>
         </div>
-        <span class="launch-link" id="shareStatus">Copy Site Link &rarr;</span>
-      </div>
+        <span class="launch-link">Enter Arcade &rarr;</span>
+      </a>
     </div>
 
     <div class="pillars">
@@ -335,7 +355,7 @@
     </div>
 
     <footer>
-      HorizonSet &bull; Minimalist Browser Tools
+      HorizonSet &bull; Minimalist Browser Tools &amp; Arcade
     </footer>
   </div>
 
@@ -344,17 +364,10 @@
       const url = 'https://horizonset.github.io/';
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(url).catch(() => {});
-      } else {
-        const t = document.createElement('textarea');
-        t.value = url;
-        document.body.appendChild(t);
-        t.select();
-        document.execCommand('copy');
-        document.body.removeChild(t);
       }
-      const el = document.getElementById('shareStatus');
-      el.textContent = 'Link Copied!';
-      setTimeout(() => { el.innerHTML = 'Copy Site Link &rarr;'; }, 2000);
+      const txt = document.getElementById('shareTxt');
+      txt.textContent = 'Link Copied!';
+      setTimeout(() => { txt.textContent = 'Share HorizonSet'; }, 2000);
     }
   </script>
 </body>
