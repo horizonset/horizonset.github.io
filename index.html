@@ -111,12 +111,12 @@
       box-shadow: 0 24px 50px rgba(2, 132, 199, 0.18);
     }
 
-    /* Support Card Styling */
-    .tool-card.support {
+    .tool-card.share {
       background: linear-gradient(145deg, rgba(124, 58, 237, 0.18), rgba(244, 63, 94, 0.12));
       border-color: rgba(251, 113, 133, 0.3);
+      cursor: pointer;
     }
-    .tool-card.support:hover {
+    .tool-card.share:hover {
       border-color: rgba(251, 113, 133, 0.65);
       box-shadow: 0 24px 50px rgba(244, 63, 94, 0.2);
     }
@@ -164,7 +164,7 @@
       transition: gap 0.2s ease;
     }
     .tool-card:hover .launch-link { gap: 10px; }
-    .tool-card.support .launch-link { color: #fda4af; }
+    .tool-card.share .launch-link { color: #fda4af; }
 
     .pillars {
       display: grid;
@@ -305,18 +305,18 @@
         <span class="launch-link">Open Tool &rarr;</span>
       </a>
 
-      <!-- 9. Support / Donate Card (REPLACE THE LINK BELOW WITH YOUR GUMROAD URL) -->
-      <a class="tool-card support" href="https://YOUR_GUMROAD_LINK" target="_blank" rel="noopener noreferrer">
+      <!-- 9. Share HorizonSet -->
+      <div class="tool-card share" onclick="copyHomeLink(this)">
         <div>
           <div class="icon-box ic-rose">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
           </div>
-          <h2>Support HorizonSet</h2>
-          <p>Find these free tools helpful? Leave a small tip to help keep HorizonSet fast, free, and popup-free.</p>
-          <div class="tags"><span class="tag">Optional Tip</span><span class="tag">Any Card Accepted</span></div>
+          <h2>Share HorizonSet</h2>
+          <p>Find these free tools helpful? Bookmark this hub or share it with a friend—zero sign-ups required.</p>
+          <div class="tags"><span class="tag">100% Free</span><span class="tag">Zero Sign-ups</span></div>
         </div>
-        <span class="launch-link">Buy Me a Coffee &rarr;</span>
-      </a>
+        <span class="launch-link" id="shareStatus">Copy Site Link &rarr;</span>
+      </div>
     </div>
 
     <div class="pillars">
@@ -338,5 +338,24 @@
       HorizonSet &bull; Minimalist Browser Tools
     </footer>
   </div>
+
+  <script>
+    function copyHomeLink() {
+      const url = 'https://horizonset.github.io/';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).catch(() => {});
+      } else {
+        const t = document.createElement('textarea');
+        t.value = url;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand('copy');
+        document.body.removeChild(t);
+      }
+      const el = document.getElementById('shareStatus');
+      el.textContent = 'Link Copied!';
+      setTimeout(() => { el.innerHTML = 'Copy Site Link &rarr;'; }, 2000);
+    }
+  </script>
 </body>
 </html>
